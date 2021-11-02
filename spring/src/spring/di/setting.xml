@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+	<!-- @Autowired 할때 필요, 네임스페이스에서 context 체크: 6행-->
+	<context:component-scan base-package="spring.di.ui, spring.di.entity" />
+	
+	<!-- 아래 소스 옆 네임스페이스 p, 4행 필요 -->
+	<!-- <bean id="exam1" class="spring.di.entity.NewlecExam" p:kor="10" p:eng="10"/>
+	<bean id="exam2" class="spring.di.entity.NewlecExam" p:kor="20" p:eng="20"/> -->
+	<!-- setter -->
+	<!-- Exam exam = new NewlecExam(); -->
+	<!-- NewlecExam에 setter 필요 -->
+	<!-- <bean id="exam" class="spring.di.entity.NewlecExam">
+		<property name="kor" value="10"></property>
+		<property name="eng" value="10"></property>
+		<property name="math" value="10"></property>
+		<property name="com" value="10"></property>
+	</bean> -->
+	
+	<!-- 생성자 -->
+	<!-- name, type or index 사용가능 -->
+	<!-- <bean id="exam" class="spring.di.entity.NewlecExam">
+		<constructor-arg index="0" value="10" />
+		<constructor-arg index="2" value="30" />
+		<constructor-arg index="1" value="20" />
+		<constructor-arg index="3" value="40" />
+	</bean> -->
+	
+	<!-- ExamConsole console = new GridExamConsole(); -->
+	<!-- <bean id="console" class="spring.di.ui.InlineExamConsole">
+		console.setExam(exam);
+		<property name="setterExam > exam" ref="()"></property>
+		<property name="exam" ref="exam" />
+	</bean> -->
+	
+	<!-- <bean id="exams" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<bean class="spring.di.entity.NewlecExam" p:kor="1" p:eng="1"/>
+				<ref bean="exam" />
+			</list>
+		</constructor-arg>
+	</bean> -->
+
+</beans>
